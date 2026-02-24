@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'com.exemple'
+    version = '1.0.0'
+    description = 'pace-link'
+}
