@@ -22,7 +22,7 @@ public class AuthController {
         try {
             if(registerDTO == null)
                 return ResponseEntity.status(HttpStatus.OK).body(service.register(registerDTO));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid request body");
+            else return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid request body");
         } catch (AuthException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
