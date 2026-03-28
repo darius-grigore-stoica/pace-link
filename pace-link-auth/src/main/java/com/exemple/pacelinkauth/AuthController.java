@@ -20,7 +20,9 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterDTO registerDTO){
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.register(registerDTO));
+            if(registerDTO == null)
+                return ResponseEntity.status(HttpStatus.OK).body(service.register(registerDTO));
+            else return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid request body");
         } catch (AuthException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
